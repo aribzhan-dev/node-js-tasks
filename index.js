@@ -8,6 +8,12 @@ app.get('/', (req, res) => {
     res.send("Api is working");
 })
 
+app.post('/user', async (req, res) => {
+    const user = new User(req.body);
+    await user.save();
+    res.json(user);
+})
+
 app.listen(port, () => {
     console.log(`Сервер запущен на порту http://localhost:${port}`) 
 })
