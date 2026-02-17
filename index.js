@@ -14,6 +14,11 @@ app.post('/user', async (req, res) => {
     res.json(user);
 })
 
+app.get('/users', async (req, res) => {
+    const users = await User.find();
+    res.json(users);
+})
+
 app.listen(port, () => {
     console.log(`Сервер запущен на порту http://localhost:${port}`) 
 })
