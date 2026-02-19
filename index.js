@@ -1,8 +1,16 @@
 const express = require('express');
 const app = express();
+const User = require("./models/User");
+const mongoose = require('mongoose');
 const port = 3000;
 
 app.use(express.json());
+
+mongoose.connect('mongodb://localhost:27017/testdb',) 
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(err => console.error('Error connecting to MongoDB:', err));
+
+
 
 app.get('/', (req, res) => {
     res.send("Api is working");
